@@ -25,9 +25,24 @@ Module Program
         'Dim fs As FileStream = File.Create(path)
 
         ' Add text to the file.
-        'Dim info As Byte() = New UTF8Encoding(True).GetBytes("This is some text in the file.")
+        Dim info As Byte() = New UTF8Encoding(True).GetBytes("This is some text in the file.")
         'fs.Write(info, 0, info.Length)
         'fs.Close()
+        WriteToFile(info)
+
+
+
+    End Sub
+
+    'sub or function - https://stackoverflow.com/questions/10141708/what-is-the-difference-between-sub-and-function-in-vb6
+    Public Sub WriteToFile(info2)
+
+
+        Dim path As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\vbnetpython\test.txt"
+        ' Create or overwrite the file.
+        Dim fs As FileStream = File.Create(path)
+        fs.Write(info2, 0, info2.Length)
+        fs.Close()
 
 
     End Sub
