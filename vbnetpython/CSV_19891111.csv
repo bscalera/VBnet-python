@@ -1,0 +1,13 @@
+,No,SDN Name,Alias,Kana Name,Kana Alias,Address,City,Country,Program,DOB,POB,Nationality,Vessel,Info5,Info6,Info7,Info8,Info9,Info10,Remarks,Type
+2,1,George Smith,,,,,,,Program_name,10-Apr-37,United States of America,,,,,,,,,President of somewhere,individual
+34,2,John Jacob,,,,,,,Program_name,1975,,,,,,,,,,Mother,individual
+234,3,Jacob John,,,,,,,Program_name1,8-Feb-48,,,,,,,,,,Sister,individual
+23433,1,Smith George,,@??AG,,"The long road 23, City Name A, Z100",Berg,Country1,Program_name2,,,,,,,,,,,,entity
+3,2,A really great Company,company name1@company name2@company name3,@???????????????,@???????????@?????????????@???????,,Berg,Country1,Program_name3,,,,,,,,,,,,entity
+2,3,THE NAME OF A CORPORATION,,@??????,,,Berg,Country2,Program_name4,,,,,,,,,,,,entity
+34,14,Josh Spinach,,@??????,,,Berg,Country3,Program_name5,,,,,,,,,,,,individual
+23,5839,First Second Third,name10@name9@name8@name7@name6@name5@name4@name3@name2@name1@name0,@???,@??,,,,Program_name6,22-Jul-64,,Korea,,,,,,,,,individual
+54,3984,Generic name,1@2@3@4@5,,@?????@??????@??????,,Patter,Country4,Program_name7,28-Dec-57,,Korea,,,,,,,,,individual
+34,2,I Am A Test,This is a test,@??????,@??????,,"Patter, Statement",,Program_name8,11-Apr-57,,,,,,,,,,,individual
+3434,9,Name This,name 1@name 2@name 3,@????,@???????@????,,"Town, Colabria",Country5,Program_name9,"8 Jan 1967, 1950",Canada,Mexico,,,,,,,,,individual
+2323,91,This Name Here,,@??????,,,,,Program_name10,1-Jan-80,City in Sudan,Sudan,,,,,,,,,individual

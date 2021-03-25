@@ -8,7 +8,7 @@ Module Program
         Console.WriteLine("Hello World!")
 
         'read from a file - https://docs.microsoft.com/en-us/dotnet/api/system.io.file.readalltext?view=net-5.0
-        Dim path As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\vbnetpython\test.txt"
+        Dim path As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\vbnetpython\CSV_19891111.csv"
 
         If File.Exists(path) = True Then
 
