@@ -29,6 +29,11 @@ Module Program
         'fs.Write(info, 0, info.Length)
         'fs.Close()
         WriteToFile(info)
+        CreateFolder("CSVfiles")
+        CreateFolder("csvFinalOutput")
+        CreateFolder("OutputForXML")
+        CreateFolder("FilesProcessed")
+        CreateFolder("Logs")
 
 
 
@@ -45,5 +50,12 @@ Module Program
         fs.Close()
 
 
+    End Sub
+
+    Public Sub CreateFolder(ByRef folderName As String)
+        'create a folder - https://docs.microsoft.com/en-us/dotnet/visual-basic/developing-apps/programming/drives-directories-files/how-to-create-a-directory
+        '- https://stackoverflow.com/questions/85996/how-do-i-create-a-folder-in-vb-if-it-doesnt-exist
+        Directory.CreateDirectory(
+  "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\vbnetpython\" + folderName)
     End Sub
 End Module
