@@ -33,25 +33,35 @@ Module Program
         Dim info As Byte() = New UTF8Encoding(True).GetBytes("This is some text in the file.")
         'fs.Write(info, 0, info.Length)
         'fs.Close()
-        WriteToFile(info, path)
+
+        'create the set of folders
+        WriteToFile(info, path, filename:="config.txt")
         CreateFolder("CSVfiles")
         CreateFolder("csvFinalOutput")
         CreateFolder("OutputForXML")
         CreateFolder("FilesProcessed")
         CreateFolder("Logs")
 
+        'get the current time
+        Dim time As String = Now.Year & Now.Month & Now.Day & Now.Hour & Now.Minute & Now.Second & Now.Millisecond
+        'ToString("d")
+        'ToLongTimeString
+        Console.WriteLine(time)
+        'use the current time to create a unique name for the log file
+        'It is not necessary to use a unique name while writing the program.
         Dim logInfo As Byte() = New UTF8Encoding(True).GetBytes("Information about the conversion From csv to xml")
-        WriteToFile(logInfo, path + "Logs\")
+        WriteToFile(logInfo, path + "Logs\", filename:="log.txt") 'time + "log.txt")
+
 
 
 
     End Sub
 
     'sub or function - https://stackoverflow.com/questions/10141708/what-is-the-difference-between-sub-and-function-in-vb6
-    Public Sub WriteToFile(text, path)
+    Public Sub WriteToFile(text, path, filename)
 
 
-        Dim filename As String = "config.txt"
+        'Dim filename As String = "config.txt"
         ' Create or overwrite the file.
         Dim fs As FileStream = File.Create(path + filename)
         fs.Write(text, 0, text.Length)
