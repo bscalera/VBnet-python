@@ -7,13 +7,18 @@ Module Program
         'This is how a comment is written. - https://stackoverflow.com/questions/13477958/in-visual-basic-how-do-you-create-a-block-comment
         Console.WriteLine("Hello World!")
 
-        'read from a file - https://docs.microsoft.com/en-us/dotnet/api/system.io.file.readalltext?view=net-5.0
-        Dim path As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\vbnetpython\CSV_19891111.csv"
+        'This is where the folders and files will be
+        Dim path As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\"
 
-        If File.Exists(path) = True Then
+
+
+        'read from a file - https://docs.microsoft.com/en-us/dotnet/api/system.io.file.readalltext?view=net-5.0
+        Dim CSVpath As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\CSV_19891111.csv"
+
+        If File.Exists(CSVpath) = True Then
 
             ' Open the file to read from.
-            Dim readText As String = File.ReadAllText(path)
+            Dim readText As String = File.ReadAllText(CSVpath)
             Console.WriteLine(readText)
         End If
 
@@ -43,7 +48,7 @@ Module Program
     Public Sub WriteToFile(info2)
 
 
-        Dim path As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\vbnetpython\test.txt"
+        Dim path As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\config.txt"
         ' Create or overwrite the file.
         Dim fs As FileStream = File.Create(path)
         fs.Write(info2, 0, info2.Length)
@@ -56,6 +61,6 @@ Module Program
         'create a folder - https://docs.microsoft.com/en-us/dotnet/visual-basic/developing-apps/programming/drives-directories-files/how-to-create-a-directory
         '- https://stackoverflow.com/questions/85996/how-do-i-create-a-folder-in-vb-if-it-doesnt-exist
         Directory.CreateDirectory(
-  "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\vbnetpython\" + folderName)
+  "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\" + folderName)
     End Sub
 End Module
