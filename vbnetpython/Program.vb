@@ -33,25 +33,28 @@ Module Program
         Dim info As Byte() = New UTF8Encoding(True).GetBytes("This is some text in the file.")
         'fs.Write(info, 0, info.Length)
         'fs.Close()
-        WriteToFile(info)
+        WriteToFile(info, path)
         CreateFolder("CSVfiles")
         CreateFolder("csvFinalOutput")
         CreateFolder("OutputForXML")
         CreateFolder("FilesProcessed")
         CreateFolder("Logs")
 
+        Dim logInfo As Byte() = New UTF8Encoding(True).GetBytes("Information about the conversion From csv to xml")
+        WriteToFile(logInfo, path + "Logs\")
+
 
 
     End Sub
 
     'sub or function - https://stackoverflow.com/questions/10141708/what-is-the-difference-between-sub-and-function-in-vb6
-    Public Sub WriteToFile(info2)
+    Public Sub WriteToFile(text, path)
 
 
-        Dim path As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\config.txt"
+        Dim filename As String = "config.txt"
         ' Create or overwrite the file.
-        Dim fs As FileStream = File.Create(path)
-        fs.Write(info2, 0, info2.Length)
+        Dim fs As FileStream = File.Create(path + filename)
+        fs.Write(text, 0, text.Length)
         fs.Close()
 
 
