@@ -76,4 +76,18 @@ Module Program
         Directory.CreateDirectory(
   "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\" + folderName)
     End Sub
+
+    Function ConcatenateCSV(ByVal path As String) As String
+        ' local variable declaration */
+        Dim result As String = "test"
+        'this might not be necessary
+        'For Each foundFile As String In File(path)
+        '   My.Computer.FileSystem.SpecialDirectories.MyDocuments)
+
+        '   listBox1.Items.Add(foundFile)
+        'Next
+        Return result
+        'Get the Collection of Files in a Directory - https://docs.microsoft.com/en-us/dotnet/visual-basic/developing-apps/programming/drives-directories-files/how-to-get-the-collection-of-files-in-a-directory
+    End Function
+
 End Module
