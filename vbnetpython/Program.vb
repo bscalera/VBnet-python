@@ -72,7 +72,7 @@ Module Program
 
 
 
-
+        Console.WriteLine(CreateXML)
     End Sub
 
     'sub or function - https://stackoverflow.com/questions/10141708/what-is-the-difference-between-sub-and-function-in-vb6
@@ -108,4 +108,16 @@ Module Program
         'Get the Collection of Files in a Directory - https://docs.microsoft.com/en-us/dotnet/visual-basic/developing-apps/programming/drives-directories-files/how-to-get-the-collection-of-files-in-a-directory
     End Function
 
+
+    'stringbuilder - https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/language-features/strings/how-to-create-strings-using-a-stringbuilder
+    Private Function CreateXML() As String
+        Dim builder As New System.Text.StringBuilder
+
+        builder.Append("<?xml version=""1.0"" encoding=""utf-8""?>
+    <parties>" & vbCrLf)
+        For i As Integer = 1 To 1000
+            builder.Append("Step " & i & vbCrLf)
+        Next
+        Return builder.ToString
+    End Function
 End Module
