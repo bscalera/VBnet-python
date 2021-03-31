@@ -25,13 +25,8 @@ Module Program
 
         'read from a file - https://docs.microsoft.com/en-us/dotnet/api/system.io.file.readalltext?view=net-5.0
         Dim CSVpath As String = path & "CSVfiles\" + "CSV_19891111.csv"
+        Console.WriteLine(ReadFile(CSVpath))
 
-        If File.Exists(CSVpath) = True Then
-
-            ' Open the file to read from.
-            Dim readText As String = File.ReadAllText(CSVpath)
-            Console.WriteLine(readText)
-        End If
 
         'write to a file -
         'https://docs.microsoft.com/en-us/dotnet/visual-basic/developing-apps/programming/drives-directories-files/how-to-create-a-file
@@ -130,5 +125,19 @@ Module Program
             builder.Append("Step " & i & vbCrLf)
         Next
         Return builder.ToString
+    End Function
+
+    'Read a text file
+    Private Function ReadFile(filePath) As String
+        If File.Exists(filePath) = True Then
+
+            ' Open the file to read from.
+            Dim readText As String = File.ReadAllText(filePath)
+            'Console.WriteLine(readText)
+            Return readText
+        Else
+            Console.WriteLine("file not found")
+            Return "file not found"
+        End If
     End Function
 End Module
