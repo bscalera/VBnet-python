@@ -9,12 +9,22 @@ Module Program
 
         'This is where the folders and files will be
         'Path should be taken from config file
-        Dim path As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\"
+        Dim path As String
+        Dim configPath As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\config.txt"
+        If File.Exists(configPath) = True Then
+
+            ' Open the file to read from.
+            path = File.ReadAllText(configPath)
+        Else
+            path = ""
+            Console.WriteLine("no config.txt file found")
+        End If
+        'Dim path As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\"
 
 
 
         'read from a file - https://docs.microsoft.com/en-us/dotnet/api/system.io.file.readalltext?view=net-5.0
-        Dim CSVpath As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\CSV_19891111.csv"
+        Dim CSVpath As String = path + "CSV_19891111.csv"
 
         If File.Exists(CSVpath) = True Then
 
@@ -34,16 +44,16 @@ Module Program
         'newline - https://stackoverflow.com/questions/5152042/how-to-use-n-new-line-in-vb-msgbox & vbcrlf &
         'https://www.tutorialspoint.com/vb.net/vb.net_character_escapes.htm \n
         'https://docs.microsoft.com/en-us/dotnet/desktop/winforms/controls/how-to-put-quotation-marks-in-a-string-windows-forms?view=netframeworkdesktop-4.8 ""
-        Dim info As Byte() = New UTF8Encoding(True).GetBytes(
-            "{""read_csv_from"" : ""C:    \\.....\\MUFG\\CSVfiles\\"",
-""write_final_csv_to"" : ""C\\.....\\MUFG\\OutputForXML\\"",
-""processedCsvs"" : ""C\\.....\\MUFG\\FilesProcessed\\"",
-""logs"":""C\\.....\\MUFG\\Logs\\"" }")
+        'Dim info As Byte() = New UTF8Encoding(True).GetBytes(
+        '   "{""read_csv_from"" : ""C:    \\.....\\MUFG\\CSVfiles\\"",
+        '""write_final_csv_to"" : ""C\\.....\\MUFG\\OutputForXML\\"",
+        '""processedCsvs"" : ""C\\.....\\MUFG\\FilesProcessed\\"",
+        '""logs"":""C\\.....\\MUFG\\Logs\\"" }")
         'fs.Write(info, 0, info.Length)
         'fs.Close()
 
         'create the set of folders
-        WriteToFile(info, path, filename:="config.txt")
+        'WriteToFile(info, path, filename:="config.txt")
         CreateFolder("CSVfiles")
         CreateFolder("csvFinalOutput")
         CreateFolder("OutputForXML")
