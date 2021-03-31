@@ -8,6 +8,7 @@ Module Program
         Console.WriteLine("Hello World!")
 
         'This is where the folders and files will be
+        'Path should be taken from config file
         Dim path As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\"
 
 
@@ -30,7 +31,14 @@ Module Program
         'Dim fs As FileStream = File.Create(path)
 
         ' Add text to the file.
-        Dim info As Byte() = New UTF8Encoding(True).GetBytes("This is some text in the file.")
+        'newline - https://stackoverflow.com/questions/5152042/how-to-use-n-new-line-in-vb-msgbox & vbcrlf &
+        'https://www.tutorialspoint.com/vb.net/vb.net_character_escapes.htm \n
+        'https://docs.microsoft.com/en-us/dotnet/desktop/winforms/controls/how-to-put-quotation-marks-in-a-string-windows-forms?view=netframeworkdesktop-4.8 ""
+        Dim info As Byte() = New UTF8Encoding(True).GetBytes(
+            "{""read_csv_from"" : ""C:    \\.....\\MUFG\\CSVfiles\\"",
+""write_final_csv_to"" : ""C\\.....\\MUFG\\OutputForXML\\"",
+""processedCsvs"" : ""C\\.....\\MUFG\\FilesProcessed\\"",
+""logs"":""C\\.....\\MUFG\\Logs\\"" }")
         'fs.Write(info, 0, info.Length)
         'fs.Close()
 

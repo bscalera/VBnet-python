@@ -21,6 +21,12 @@ In the folder "MultipleCSVsToXML", there is a Word document called "Working Proc
 4. combine csv files to csvFinalOutput and convert combined CSV to XML
 5. Logs folder should have a file describing each conversion
 
+from step 2 in word file
+config file
+{"read_csv_from" : "C:\\.....\\MUFG\\CSVfiles\\",
+"write_final_csv_to" : "C:\\.....\\MUFG\\OutputForXML\\",
+"processedCsvs" : "C:\\.....\\MUFG\\FilesProcessed\\",
+"logs":"C:\\.....\\MUFG\\Logs\\" }
 
 software process - 
 requirements
