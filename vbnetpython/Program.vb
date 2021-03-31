@@ -24,7 +24,7 @@ Module Program
 
 
         'read from a file - https://docs.microsoft.com/en-us/dotnet/api/system.io.file.readalltext?view=net-5.0
-        Dim CSVpath As String = path + "CSV_19891111.csv"
+        Dim CSVpath As String = path & "CSVfiles\" + "CSV_19891111.csv"
 
         If File.Exists(CSVpath) = True Then
 
@@ -109,12 +109,23 @@ Module Program
     End Function
 
 
-    'stringbuilder - https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/language-features/strings/how-to-create-strings-using-a-stringbuilder
+    'StringBuilder - https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/language-features/strings/how-to-create-strings-using-a-stringbuilder
+    'read line by line - https://docs.microsoft.com/en-us/dotnet/visual-basic/developing-apps/programming/drives-directories-files/how-to-read-text-from-files-with-a-streamreader
     Private Function CreateXML() As String
         Dim builder As New System.Text.StringBuilder
 
         builder.Append("<?xml version=""1.0"" encoding=""utf-8""?>
     <parties>" & vbCrLf)
+
+        'Dim fileReader As System.IO.StreamReader
+        'fileReader =
+        '"My.Computer" does not work - My.Computer.FileSystem.OpenTextFileReader("C:\\testfile.txt")
+        'Dim stringReader As String
+        'stringReader = fileReader.ReadLine()
+        'MsgBox("The first line of the file is " & stringReader)
+
+
+
         For i As Integer = 1 To 1000
             builder.Append("Step " & i & vbCrLf)
         Next
