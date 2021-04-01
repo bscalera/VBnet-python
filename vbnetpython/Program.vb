@@ -3,13 +3,14 @@ Imports System.IO
 Imports System.Text
 
 Module Program
+    Dim path As String
     Sub Main(args As String())
         'This is how a comment is written. - https://stackoverflow.com/questions/13477958/in-visual-basic-how-do-you-create-a-block-comment
         Console.WriteLine("Hello World!")
 
         'This is where the folders and files will be
         'Path should be taken from config file
-        Dim path As String
+        'Dim path As String
         Dim configPath As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\config.txt"
         If File.Exists(configPath) = True Then
 
@@ -23,7 +24,7 @@ Module Program
 
 
 
-        'read from a file - https://docs.microsoft.com/en-us/dotnet/api/system.io.file.readalltext?view=net-5.0
+
         Dim CSVpath As String = path & "CSVfiles\" + "CSV_19891111.csv"
         Console.WriteLine(ReadFile(CSVpath))
 
@@ -113,7 +114,8 @@ Module Program
     <parties>" & vbCrLf)
 
         'Dim fileReader As System.IO.StreamReader
-        'fileReader =
+        'Dim CSVpath As Byte() = New UTF8Encoding(True).GetBytes(path & "CSVfiles\" & "CSV_19891111.csv")
+        'fileReader = My.Computer.FileSystem.OpenTextFileReader(CSVpath)   'ReadFile(CSVpath)
         '"My.Computer" does not work - My.Computer.FileSystem.OpenTextFileReader("C:\\testfile.txt")
         'Dim stringReader As String
         'stringReader = fileReader.ReadLine()
@@ -121,7 +123,7 @@ Module Program
 
 
 
-        For i As Integer = 1 To 1000
+        For i As Integer = 1 To 10
             builder.Append("Step " & i & vbCrLf)
         Next
         Return builder.ToString
@@ -129,8 +131,8 @@ Module Program
 
     'Read a text file
     Private Function ReadFile(filePath) As String
+        'read from a file - https://docs.microsoft.com/en-us/dotnet/api/system.io.file.readalltext?view=net-5.0
         If File.Exists(filePath) = True Then
-
             ' Open the file to read from.
             Dim readText As String = File.ReadAllText(filePath)
             'Console.WriteLine(readText)
