@@ -6,4 +6,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="My\**" />
+    <EmbeddedResource Remove="My\**" />
+    <None Remove="My\**" />
+  </ItemGroup>
+
 </Project>

@@ -110,16 +110,21 @@ Module Program
     Private Function CreateXML() As String
         Dim builder As New System.Text.StringBuilder
 
+        Dim CSVpath As String = path & "CSVfiles\" + "CSV_19891111.csv"
         builder.Append("<?xml version=""1.0"" encoding=""utf-8""?>
     <parties>" & vbCrLf)
 
-        'Dim fileReader As System.IO.StreamReader
-        'Dim CSVpath As Byte() = New UTF8Encoding(True).GetBytes(path & "CSVfiles\" & "CSV_19891111.csv")
-        'fileReader = My.Computer.FileSystem.OpenTextFileReader(CSVpath)   'ReadFile(CSVpath)
-        '"My.Computer" does not work - My.Computer.FileSystem.OpenTextFileReader("C:\\testfile.txt")
-        'Dim stringReader As String
-        'stringReader = fileReader.ReadLine()
-        'MsgBox("The first line of the file is " & stringReader)
+        Dim x1x As String = ReadFile(CSVpath)
+        'split - https://stackoverflow.com/questions/14795943/how-to-split-new-line-in-string-in-vb-net
+        Dim line As String() = x1x.Split(New String() {Environment.NewLine}, '{ "\r\n", "\r", "\n" }
+                                       StringSplitOptions.None)
+        Dim CountColumn As Integer = CountChar(line(0), ",") + 1
+        Console.WriteLine("There are " & CountColumn & " columns in the row.")
+        'CountColumn(line(0), ",")
+        'Dim x2x(43) As String
+        'x2x = x1x.Split(
+        'New[] { "\r\n", "\r", "\n" },
+        'StringSplitOptions.None);
 
 
 
@@ -127,6 +132,18 @@ Module Program
             builder.Append("Step " & i & vbCrLf)
         Next
         Return builder.ToString
+    End Function
+
+    Public Function CountChar(ByVal value As String, ByVal ch As Char) As Integer
+        'count how many commas are in the line
+        'https://stackoverflow.com/questions/5193893/count-specific-character-occurrences-in-a-string
+        Dim count As Integer = 0
+        For Each c As Char In value
+            If c = ch Then
+                count += 1
+            End If
+        Next
+        Return count
     End Function
 
     'Read a text file
