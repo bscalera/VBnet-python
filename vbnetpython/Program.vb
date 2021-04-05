@@ -4,6 +4,7 @@ Imports System.Text
 
 Module Program
     Dim path As String
+    Dim fileData(,) As String
     Sub Main(args As String())
         'This is how a comment is written. - https://stackoverflow.com/questions/13477958/in-visual-basic-how-do-you-create-a-block-comment
         Console.WriteLine("Hello World!")
@@ -114,24 +115,35 @@ Module Program
         builder.Append("<?xml version=""1.0"" encoding=""utf-8""?>
     <parties>" & vbCrLf)
 
-        Dim x1x As String = ReadFile(CSVpath)
+        Dim fileContent As String = ReadFile(CSVpath)
         'split - https://stackoverflow.com/questions/14795943/how-to-split-new-line-in-string-in-vb-net
-        Dim line As String() = x1x.Split(New String() {Environment.NewLine}, '{ "\r\n", "\r", "\n" }
+        'split the file into lines
+        Dim line As String() = fileContent.Split(New String() {Environment.NewLine}, '{ "\r\n", "\r", "\n" }
                                        StringSplitOptions.None)
         'count the number of commas
         Dim countColumn As Integer = CountChar(line(0), ",") + 1
         Console.WriteLine("There are " & CountColumn & " columns in the row.")
-        'split the line by the commas into categories
+        'split the line by the commas into columns
+        'columnName array
         Dim columnName As String() = line(0).Split(New String() {","}, StringSplitOptions.None)
         Console.WriteLine("The second column name is " & columnName(1) & ".")
+        'output the column names
         For i As Integer = 0 To countColumn - 1
             Console.WriteLine("Column " & i & " is " & columnName(i) & ".")
         Next
+        'go from the second line to the last line to get the data content as an array
+        'array length in VB.NET is one more than the number of elements in the array - https://stackoverflow.com/questions/506207/size-of-array-in-visual-basic
+        For y As Integer = 1 To line.Length - 1
+            Console.WriteLine(y)
 
 
-        'For Each col As String In columnName
-        '    Console.Write(columnName(col))
-        'Next
+            'go from the first column to the last column in the line
+            'For x As Integer = 1 To countColumn
+            '    fileData(x, y) = "something"
+            'Next
+        Next
+
+
 
 
         For i As Integer = 1 To 10
