@@ -4,7 +4,6 @@ Imports System.Text
 
 Module Program
     Dim path As String
-    Dim fileData(,) As String
     Sub Main(args As String())
         'This is how a comment is written. - https://stackoverflow.com/questions/13477958/in-visual-basic-how-do-you-create-a-block-comment
         Console.WriteLine("Hello World!")
@@ -131,16 +130,25 @@ Module Program
         For i As Integer = 0 To countColumn - 1
             Console.WriteLine("Column " & i & " is " & columnName(i) & ".")
         Next
+
+        'Create a 2d array for the data in the table
+        Dim fileData(countColumn, line.Length - 1) As String
         'go from the second line to the last line to get the data content as an array
         'array length in VB.NET is one more than the number of elements in the array - https://stackoverflow.com/questions/506207/size-of-array-in-visual-basic
         For y As Integer = 1 To line.Length - 1
             Console.WriteLine(y)
 
+            'split the line into columns
+            Dim columnData As String() = line(y).Split(New String() {","}, StringSplitOptions.None)
+            'go From the first column to the last column in the line
+            For x As Integer = 1 To countColumn
 
-            'go from the first column to the last column in the line
-            'For x As Integer = 1 To countColumn
-            '    fileData(x, y) = "something"
-            'Next
+
+                fileData(x, y) = "something"
+                Console.WriteLine(fileData(x, y))
+
+
+            Next
         Next
 
 
