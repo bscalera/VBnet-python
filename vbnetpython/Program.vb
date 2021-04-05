@@ -118,14 +118,20 @@ Module Program
         'split - https://stackoverflow.com/questions/14795943/how-to-split-new-line-in-string-in-vb-net
         Dim line As String() = x1x.Split(New String() {Environment.NewLine}, '{ "\r\n", "\r", "\n" }
                                        StringSplitOptions.None)
-        Dim CountColumn As Integer = CountChar(line(0), ",") + 1
+        'count the number of commas
+        Dim countColumn As Integer = CountChar(line(0), ",") + 1
         Console.WriteLine("There are " & CountColumn & " columns in the row.")
-        'CountColumn(line(0), ",")
-        'Dim x2x(43) As String
-        'x2x = x1x.Split(
-        'New[] { "\r\n", "\r", "\n" },
-        'StringSplitOptions.None);
+        'split the line by the commas into categories
+        Dim columnName As String() = line(0).Split(New String() {","}, StringSplitOptions.None)
+        Console.WriteLine("The second column name is " & columnName(1) & ".")
+        For i As Integer = 0 To countColumn - 1
+            Console.WriteLine("Column " & i & " is " & columnName(i) & ".")
+        Next
 
+
+        'For Each col As String In columnName
+        '    Console.Write(columnName(col))
+        'Next
 
 
         For i As Integer = 1 To 10
