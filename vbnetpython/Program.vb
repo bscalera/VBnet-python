@@ -68,7 +68,10 @@ Module Program
 
 
 
-        Console.WriteLine(CreateXML)
+        'Console.WriteLine(CreateXML)
+        Dim xmlString As Byte() = New UTF8Encoding(True).GetBytes(CreateXML)
+        'This is where the xml is written to a file
+        WriteToFile(xmlString, path + "OutputForXML\", filename:="log" & time & ".txt")
     End Sub
 
     'sub or function - https://stackoverflow.com/questions/10141708/what-is-the-difference-between-sub-and-function-in-vb6
@@ -233,11 +236,6 @@ Module Program
         builder.Append("
         </parties>" & vbCrLf)
 
-
-
-        For i As Integer = 1 To 10
-            builder.Append("Step " & i & vbCrLf)
-        Next
         Return builder.ToString
     End Function
 
