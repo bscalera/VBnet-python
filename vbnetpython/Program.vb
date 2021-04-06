@@ -11,21 +11,24 @@ Module Program
         'This is where the folders and files will be
         'Path should be taken from config file
         'Dim path As String
+        Dim configContent As String
         Dim configPath As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\config.txt"
         If File.Exists(configPath) = True Then
-
             ' Open the file to read from.
-            path = File.ReadAllText(configPath)
+            configContent = File.ReadAllText(configPath)
         Else
+            configContent = ""
             path = ""
             Console.WriteLine("no config.txt file found")
         End If
         'Dim path As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\"
+        Dim configLine As String() = configContent.Split(New String() {Environment.NewLine}, '{ "\r\n", "\r", "\n" }
+                                       StringSplitOptions.None)
+        path = configLine(0)
+        Dim csvFilename = configLine(1)
 
 
-
-
-        Dim CSVpath As String = path & "CSVfiles\" + "CSV_19891111.csv"
+        Dim CSVpath As String = path & "CSVfiles\" + csvFilename
         Console.WriteLine(ReadFile(CSVpath))
 
 
@@ -50,6 +53,7 @@ Module Program
 
         'create the set of folders
         'WriteToFile(info, path, filename:="config.txt")
+        'These only create folders if the folders do not exist - maybe it should be expected that the folders already exist
         CreateFolder("CSVfiles")
         CreateFolder("csvFinalOutput")
         CreateFolder("OutputForXML")
@@ -69,6 +73,7 @@ Module Program
 
 
         'Console.WriteLine(CreateXML)
+        'convert string to bytes for WriteToFile
         Dim xmlString As Byte() = New UTF8Encoding(True).GetBytes(CreateXML)
         'This is where the xml is written to a file
         WriteToFile(xmlString, path + "OutputForXML\", filename:="log" & time & ".txt")
