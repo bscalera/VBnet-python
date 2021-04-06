@@ -143,14 +143,84 @@ Module Program
             'go From the first column to the last column in the line
             For x As Integer = 1 To countColumn
 
-
-                fileData(x, y) = "something"
+                'add the data to the 2d array
+                fileData(x, y) = columnData(x - 1)
                 Console.WriteLine(fileData(x, y))
 
 
             Next
         Next
 
+        'add the info for each user line by line in xml format
+        For y As Integer = 1 To line.Length - 1
+            builder.Append("      <party>
+        <info>" & vbCrLf)
+            builder.Append("          <uid>" & fileData(2, y) & "</uid>" & vbCrLf)
+            builder.Append("          <fullname>" & fileData(3, y) & "</fullname>" & vbCrLf)
+            builder.Append("          <firstname></firstname>" & vbCrLf)
+            builder.Append("          <middlename></middlename>" & vbCrLf)
+            builder.Append("          <lastname></lastname>" & vbCrLf)
+            builder.Append("          <title></title>" & vbCrLf)
+            builder.Append("          <program>" & fileData(10, y) & "</program>" & vbCrLf)
+            builder.Append("          <partytype>" & fileData(22, y) & "</partytype>" & vbCrLf)
+            builder.Append("          <vesstype></vesstype>" & vbCrLf)
+            builder.Append("          <tonnage></tonnage>" & vbCrLf)
+            builder.Append("          <grt></grt>" & vbCrLf)
+            builder.Append("          <dob></dob>" & vbCrLf)
+            builder.Append("          <sex></sex>" & vbCrLf)
+            builder.Append("          <height></height>" & vbCrLf)
+            builder.Append("          <weight></weight>" & vbCrLf)
+            builder.Append("          <build></build>" & vbCrLf)
+            builder.Append("          <eyes></eyes>" & vbCrLf)
+            builder.Append("          <hair></hair>" & vbCrLf)
+            builder.Append("          <complexion></complexion>" & vbCrLf)
+            builder.Append("          <race></race>" & vbCrLf)
+            builder.Append("          <country></country>" & vbCrLf)
+            builder.Append("          <remarks></remarks>" & vbCrLf)
+            builder.Append("          <entitytype></entitytype>" & vbCrLf)
+            builder.Append("          <listtype></listtype>" & vbCrLf)
+            builder.Append("          <callsign></callsign>" & vbCrLf)
+            builder.Append("        </info>" & vbCrLf)
+            builder.Append("        <akas>" & vbCrLf)
+            'There can be many akas, or no akas.  If there are zero akas, then a blank aka space must be shown in xml.
+            builder.Append("        <aka>" & vbCrLf)
+            builder.Append("            <alttype></alttype>" & vbCrLf)
+            builder.Append("            <altname></altname>" & vbCrLf)
+            builder.Append("            <firstname></firstname>" & vbCrLf)
+            builder.Append("            <middlename></middlename>" & vbCrLf)
+            builder.Append("            <lastname></lastname>" & vbCrLf)
+            builder.Append("            <remarks></remarks>" & vbCrLf)
+            builder.Append("        </aka>" & vbCrLf)
+            builder.Append("        </akas>" & vbCrLf)
+            builder.Append("        <addresses>" & vbCrLf)
+            builder.Append("          <address>" & vbCrLf)
+            builder.Append("            <addr1></addr1>" & vbCrLf)
+            builder.Append("            <addr2></addr2>" & vbCrLf)
+            builder.Append("            <addr3></addr3>" & vbCrLf)
+            builder.Append("            <addr4></addr4>" & vbCrLf)
+            builder.Append("            <city></city>" & vbCrLf)
+            builder.Append("            <state></state>" & vbCrLf)
+            builder.Append("            <postalcode></postalcode>" & vbCrLf)
+            builder.Append("            <country></country>" & vbCrLf)
+            builder.Append("            <remarks></remarks>" & vbCrLf)
+            builder.Append("          </address>" & vbCrLf)
+            builder.Append("        </addresses>" & vbCrLf)
+            builder.Append("        <dobs>" & vbCrLf)
+            builder.Append("          <dob>" & fileData(11, y) & "</dob>" & vbCrLf)
+            builder.Append("        </dobs>" & vbCrLf)
+            builder.Append("        <notes>" & vbCrLf)
+            builder.Append("          <note type="""" value=""""/>" & vbCrLf)
+            builder.Append("        </notes>" & vbCrLf)
+            builder.Append("        <urls>" & vbCrLf)
+            builder.Append("          <url>" & vbCrLf)
+            builder.Append("            <address>https://www.google.com</address>" & vbCrLf)
+            builder.Append("            <description>https://www.google.com</description>" & vbCrLf)
+            builder.Append("          </url>" & vbCrLf)
+            builder.Append("        </urls>" & vbCrLf)
+            builder.Append("      </party>" & vbCrLf)
+        Next
+        builder.Append("
+        </parties>" & vbCrLf)
 
 
 
