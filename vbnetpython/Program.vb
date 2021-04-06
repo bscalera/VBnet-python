@@ -6,20 +6,20 @@ Module Program
     Dim path As String
     Sub Main(args As String())
         'This is how a comment is written. - https://stackoverflow.com/questions/13477958/in-visual-basic-how-do-you-create-a-block-comment
-        Console.WriteLine("Hello World!")
+        Console.WriteLine("The program has started.")
 
         'This is where the folders and files will be
         'Path should be taken from config file
         'Dim path As String
         Dim configContent As String
-        Dim configPath As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\config.txt"
+        Dim configPath As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\config.ini"
         If File.Exists(configPath) = True Then
             ' Open the file to read from.
             configContent = File.ReadAllText(configPath)
         Else
             configContent = ""
             path = ""
-            Console.WriteLine("no config.txt file found")
+            Console.WriteLine("no config.ini file found")
         End If
         'Dim path As String = "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\"
         Dim configLine As String() = configContent.Split(New String() {Environment.NewLine}, '{ "\r\n", "\r", "\n" }
@@ -29,7 +29,7 @@ Module Program
 
 
         Dim CSVpath As String = path & "CSVfiles\" + csvFilename
-        Console.WriteLine(ReadFile(CSVpath))
+        'Console.WriteLine(ReadFile(CSVpath))
 
 
         'write to a file -
@@ -64,24 +64,21 @@ Module Program
         Dim time As String = Now.Year & Now.Month & Now.Day & Now.Hour & Now.Minute & Now.Second & Now.Millisecond
         'ToString("d")
         'ToLongTimeString
-        Console.WriteLine(time)
+        'Console.WriteLine(time)
         'use the current time to create a unique name for the log file
         'It is not necessary to use a unique name while writing the program.
-        Dim logInfo As Byte() = New UTF8Encoding(True).GetBytes("Information about the conversion From csv to xml")
+        Dim logInfo As Byte() = New UTF8Encoding(True).GetBytes("Information about the conversion From csv to xml - the program was run at " & Now.ToString("d") & " " & Now.ToLongTimeString)
         WriteToFile(logInfo, path + "Logs\", filename:="log.txt") 'time + "log.txt")
-
-
 
         'Console.WriteLine(CreateXML)
         'convert string to bytes for WriteToFile
         Dim xmlString As Byte() = New UTF8Encoding(True).GetBytes(CreateXML)
         'This is where the xml is written to a file
-        WriteToFile(xmlString, path + "OutputForXML\", filename:="log" & time & ".txt")
+        WriteToFile(xmlString, path + "OutputForXML\", filename:="FinalXML_" & time & ".txt")
     End Sub
 
     'sub or function - https://stackoverflow.com/questions/10141708/what-is-the-difference-between-sub-and-function-in-vb6
     Public Sub WriteToFile(text, path, filename)
-
 
         'Dim filename As String = "config.txt"
         ' Create or overwrite the file.
@@ -89,14 +86,13 @@ Module Program
         fs.Write(text, 0, text.Length)
         fs.Close()
 
-
     End Sub
 
     Public Sub CreateFolder(ByRef folderName As String)
         'create a folder - https://docs.microsoft.com/en-us/dotnet/visual-basic/developing-apps/programming/drives-directories-files/how-to-create-a-directory
         '- https://stackoverflow.com/questions/85996/how-do-i-create-a-folder-in-vb-if-it-doesnt-exist
         Directory.CreateDirectory(
-  "C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\" + folderName)
+  path + folderName)
     End Sub
 
     Function ConcatenateCSV(ByVal path As String) As String
@@ -129,26 +125,25 @@ Module Program
                                        StringSplitOptions.None)
         'count the number of commas
         Dim countColumn As Integer = CountChar(line(0), ",") + 1
-        Console.WriteLine("There are " & CountColumn & " columns in the row.")
+        Console.WriteLine("There are " & countColumn & " columns in the file.")
         'split the line by the commas into columns
         'columnName array
         Dim columnName As String() = line(0).Split(New String() {","}, StringSplitOptions.None)
-        Console.WriteLine("The second column name is " & columnName(1) & ".")
-        'output the column names
-        For i As Integer = 0 To countColumn - 1
-            Console.WriteLine("Column " & i & " is " & columnName(i) & ".")
-        Next
 
-        Console.WriteLine("The number of lines of data is " & line.Length)
-        Dim test As Integer() = {1, 5}
-        Console.WriteLine("The number for this test is " & test.Length) 'output is 2.
+        'output the column names
+        'For i As Integer = 0 To countColumn - 1
+        'Console.WriteLine("Column " & i & " is " & columnName(i) & ".")
+        'Next
+
+        Console.WriteLine("The number of lines of in the file is " & line.Length & ".")
+        'Dim test As Integer() = {1, 5}
+        'Console.WriteLine("The number for this test is " & test.Length) 'output is 2.
         'Create a 2d array for the data in the table
         Dim fileData(countColumn, line.Length - 1) As String
         'go from the second line to the last line to get the data content as an array
         'array length in VB.NET is one more than the number of elements in the array - https://stackoverflow.com/questions/506207/size-of-array-in-visual-basic
         'maybe not - this will need to be reviewed - check line.length
         For y As Integer = 1 To line.Length - 1
-            Console.WriteLine(y)
 
             'split the line into columns
             Dim columnData As String() = line(y).Split(New String() {","}, StringSplitOptions.None)
@@ -157,7 +152,7 @@ Module Program
 
                 'add the data to the 2d array
                 fileData(x, y) = columnData(x - 1)
-                Console.WriteLine(fileData(x, y))
+                'Console.WriteLine(fileData(x, y))
 
 
             Next
@@ -178,6 +173,7 @@ Module Program
             builder.Append("          <vesstype></vesstype>" & vbCrLf)
             builder.Append("          <tonnage></tonnage>" & vbCrLf)
             builder.Append("          <grt></grt>" & vbCrLf)
+            'Date of Birth must be converted to mmddyyyy format.
             builder.Append("          <dob></dob>" & vbCrLf)
             builder.Append("          <sex></sex>" & vbCrLf)
             builder.Append("          <height></height>" & vbCrLf)
