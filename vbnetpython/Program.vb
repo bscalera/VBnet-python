@@ -131,10 +131,14 @@ Module Program
             Console.WriteLine("Column " & i & " is " & columnName(i) & ".")
         Next
 
+        Console.WriteLine("The number of lines of data is " & line.Length)
+        Dim test As Integer() = {1, 5}
+        Console.WriteLine("The number for this test is " & test.Length) 'output is 2.
         'Create a 2d array for the data in the table
         Dim fileData(countColumn, line.Length - 1) As String
         'go from the second line to the last line to get the data content as an array
         'array length in VB.NET is one more than the number of elements in the array - https://stackoverflow.com/questions/506207/size-of-array-in-visual-basic
+        'maybe not - this will need to be reviewed - check line.length
         For y As Integer = 1 To line.Length - 1
             Console.WriteLine(y)
 
@@ -183,14 +187,21 @@ Module Program
             builder.Append("        </info>" & vbCrLf)
             builder.Append("        <akas>" & vbCrLf)
             'There can be many akas, or no akas.  If there are zero akas, then a blank aka space must be shown in xml.
-            builder.Append("        <aka>" & vbCrLf)
-            builder.Append("            <alttype></alttype>" & vbCrLf)
-            builder.Append("            <altname></altname>" & vbCrLf)
-            builder.Append("            <firstname></firstname>" & vbCrLf)
-            builder.Append("            <middlename></middlename>" & vbCrLf)
-            builder.Append("            <lastname></lastname>" & vbCrLf)
-            builder.Append("            <remarks></remarks>" & vbCrLf)
-            builder.Append("        </aka>" & vbCrLf)
+            Dim listOfAkas As String() = fileData(4, y).Split(New String() {"@"}, StringSplitOptions.None)
+            'builder.Append("The list of akas has a length of " & listOfAkas.Length & ".")
+            'The array of akas has a length of 1 even if there are no akas.  An array with a single null space is an array of 1.
+            For i As Integer = 0 To listOfAkas.Length - 1
+                'If there are no akas, then the length is 1.  Loop (For 0 To 0) goes through the loop once.
+
+                builder.Append("        <aka>" & vbCrLf)
+                builder.Append("            <alttype></alttype>" & vbCrLf)
+                builder.Append("            <altname>" & listOfAkas(i) & "</altname>" & vbCrLf)
+                builder.Append("            <firstname></firstname>" & vbCrLf)
+                builder.Append("            <middlename></middlename>" & vbCrLf)
+                builder.Append("            <lastname></lastname>" & vbCrLf)
+                builder.Append("            <remarks></remarks>" & vbCrLf)
+                builder.Append("        </aka>" & vbCrLf)
+            Next
             builder.Append("        </akas>" & vbCrLf)
             builder.Append("        <addresses>" & vbCrLf)
             builder.Append("          <address>" & vbCrLf)
