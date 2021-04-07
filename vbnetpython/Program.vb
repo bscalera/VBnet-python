@@ -74,7 +74,7 @@ Module Program
         'convert string to bytes for WriteToFile
         Dim xmlString As Byte() = New UTF8Encoding(True).GetBytes(CreateXML)
         'This is where the xml is written to a file
-        WriteToFile(xmlString, path + "OutputForXML\", filename:="FinalXML_" & time & ".txt")
+        WriteToFile(xmlString, path + "OutputForXML\", filename:="FinalXML_" & time & ".xml")
     End Sub
 
     'sub or function - https://stackoverflow.com/questions/10141708/what-is-the-difference-between-sub-and-function-in-vb6
