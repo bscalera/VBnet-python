@@ -67,14 +67,14 @@ Module Program
         'Console.WriteLine(time)
         'use the current time to create a unique name for the log file
         'It is not necessary to use a unique name while writing the program.
-        Dim logInfo As Byte() = New UTF8Encoding(True).GetBytes("Information about the conversion From csv to xml - the program was run at " & Now.ToString("d") & " " & Now.ToLongTimeString)
+        Dim logInfo As Byte() = New UTF8Encoding(True).GetBytes("Information about the conversion From csv to xml") ' - the program was run at " & Now.ToString("d") & " " & Now.ToLongTimeString)
         WriteToFile(logInfo, path + "Logs\", filename:="log.txt") 'time + "log.txt")
 
         'Console.WriteLine(CreateXML)
         'convert string to bytes for WriteToFile
         Dim xmlString As Byte() = New UTF8Encoding(True).GetBytes(CreateXML)
         'This is where the xml is written to a file
-        WriteToFile(xmlString, path + "OutputForXML\", filename:="FinalXML_" & time & ".xml")
+        WriteToFile(xmlString, path + "OutputForXML\", filename:="FinalXML_" & ".xml") ' & time & ".xml")
     End Sub
 
     'sub or function - https://stackoverflow.com/questions/10141708/what-is-the-difference-between-sub-and-function-in-vb6
@@ -127,12 +127,12 @@ Module Program
         Dim countColumn As Integer = CountChar(line(0), ",") + 1
         Console.WriteLine("There are " & countColumn & " columns in the file.")
         'split the line by the commas into columns
-        'columnName array
-        Dim columnName As String() = line(0).Split(New String() {","}, StringSplitOptions.None)
+        'columnNames array
+        Dim columnNames As String() = line(0).Split(New String() {","}, StringSplitOptions.None)
 
         'output the column names
         'For i As Integer = 0 To countColumn - 1
-        'Console.WriteLine("Column " & i & " is " & columnName(i) & ".")
+        'Console.WriteLine("Column " & i & " is " & columnNames(i) & ".")
         'Next
 
         Console.WriteLine("The number of lines of in the file is " & line.Length & ".")
@@ -162,6 +162,7 @@ Module Program
         For y As Integer = 1 To line.Length - 1
             builder.Append("      <party>
         <info>" & vbCrLf)
+            Console.WriteLine("The uid column is at " & ColumnSearch("uid", columnNames))
             builder.Append("          <uid>" & fileData(2, y) & "</uid>" & vbCrLf)
             builder.Append("          <fullname>" & fileData(3, y) & "</fullname>" & vbCrLf)
             builder.Append("          <firstname></firstname>" & vbCrLf)
@@ -238,6 +239,18 @@ Module Program
         </parties>" & vbCrLf)
 
         Return builder.ToString
+    End Function
+
+    'columns are not always in the same order, so a function is needed to find the position of each column
+    Public Function ColumnSearch(ByVal columnName As String, ByVal NameList As String()) As Integer
+
+        For i As Integer = 1 To NameList.Length - 1
+            If columnName.Equals(NameList(i)) Then
+                Return i
+            End If
+        Next
+        'if it is not found, there should be a number that gives an empty response
+        Return 1000
     End Function
 
     Public Function CountChar(ByVal value As String, ByVal ch As Char) As Integer
