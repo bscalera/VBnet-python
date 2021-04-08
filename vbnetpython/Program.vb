@@ -144,6 +144,7 @@ Module Program
         'array length in VB.NET is one more than the number of elements in the array - https://stackoverflow.com/questions/506207/size-of-array-in-visual-basic
         'maybe not - this will need to be reviewed - check line.length
         For y As Integer = 1 To line.Length - 1
+            fileData(0, y) = ""
 
             'split the line into columns
             Dim columnData As String() = line(y).Split(New String() {","}, StringSplitOptions.None)
@@ -162,8 +163,8 @@ Module Program
         For y As Integer = 1 To line.Length - 1
             builder.Append("      <party>
         <info>" & vbCrLf)
-            Console.WriteLine("The uid column is at " & ColumnSearch("uid", columnNames))
-            builder.Append("          <uid>" & fileData(2, y) & "</uid>" & vbCrLf)
+            Console.WriteLine("The uid column is at " & ColumnSearch("No", columnNames))
+            builder.Append("          <uid>" & fileData(ColumnSearch("No", columnNames), y) & "</uid>" & vbCrLf)
             builder.Append("          <fullname>" & fileData(3, y) & "</fullname>" & vbCrLf)
             builder.Append("          <firstname></firstname>" & vbCrLf)
             builder.Append("          <middlename></middlename>" & vbCrLf)
@@ -246,11 +247,11 @@ Module Program
 
         For i As Integer = 1 To NameList.Length - 1
             If columnName.Equals(NameList(i)) Then
-                Return i
+                Return i + 1
             End If
         Next
         'if it is not found, there should be a number that gives an empty response
-        Return 1000
+        Return 0
     End Function
 
     Public Function CountChar(ByVal value As String, ByVal ch As Char) As Integer
