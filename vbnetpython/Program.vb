@@ -159,11 +159,27 @@ Module Program
             Next
         Next
 
+        'Find the column for the data outside the For loop
+        Console.WriteLine("The uid column is at " & ColumnSearch("No", columnNames))
+        Dim uidLocation As Integer = ColumnSearch("No", columnNames)
+        Dim fullnameLocation As Integer = ColumnSearch("SDN Name", columnNames)
+        Dim programLocation As Integer = ColumnSearch("Program", columnNames)
+        Dim partytypeLocation As Integer = ColumnSearch("Type", columnNames)
+        Dim countryLocation As Integer = ColumnSearch("Country", columnNames)
+        Dim listOfAkasLocation As Integer = ColumnSearch("Alias", columnNames)
+        Dim remarksLocation As Integer = ColumnSearch("Remarks", columnNames)
+        Dim entitytypeLocation As Integer = ColumnSearch("Type", columnNames)
+        Dim addressLocation As Integer = ColumnSearch("Address", columnNames)
+        Dim cityLocation As Integer = ColumnSearch("City", columnNames)
+        'Dim countryLocation As Integer = ColumnSearch("Country", columnNames)
+        Dim dobLocation As Integer = ColumnSearch("DOB", columnNames)
+        Dim pobLocation As Integer = ColumnSearch("POB", columnNames)
+
         'add the info for each user line by line in xml format
         For y As Integer = 1 To line.Length - 1
             builder.Append("      <party>
         <info>" & vbCrLf)
-            Console.WriteLine("The uid column is at " & ColumnSearch("No", columnNames))
+
             builder.Append("          <uid>" & fileData(ColumnSearch("No", columnNames), y) & "</uid>" & vbCrLf)
             builder.Append("          <fullname>" & fileData(ColumnSearch("SDN Name", columnNames), y) & "</fullname>" & vbCrLf)
             builder.Append("          <firstname></firstname>" & vbCrLf)
@@ -176,6 +192,7 @@ Module Program
             builder.Append("          <tonnage></tonnage>" & vbCrLf)
             builder.Append("          <grt></grt>" & vbCrLf)
             'Date of Birth must be converted to mmddyyyy format.
+            'Why is date of birth here when it is in another place in a lower line
             builder.Append("          <dob></dob>" & vbCrLf)
             builder.Append("          <sex></sex>" & vbCrLf)
             builder.Append("          <height></height>" & vbCrLf)
@@ -185,9 +202,10 @@ Module Program
             builder.Append("          <hair></hair>" & vbCrLf)
             builder.Append("          <complexion></complexion>" & vbCrLf)
             builder.Append("          <race></race>" & vbCrLf)
+            'country is in another place in a lower line at address
             builder.Append("          <country></country>" & vbCrLf)
-            builder.Append("          <remarks></remarks>" & vbCrLf)
-            builder.Append("          <entitytype></entitytype>" & vbCrLf)
+            builder.Append("          <remarks>" & fileData(remarksLocation, y) & "</remarks>" & vbCrLf)
+            builder.Append("          <entitytype>" & fileData(entitytypeLocation, y) & "</entitytype>" & vbCrLf)
             builder.Append("          <listtype></listtype>" & vbCrLf)
             builder.Append("          <callsign></callsign>" & vbCrLf)
             builder.Append("        </info>" & vbCrLf)
@@ -210,21 +228,23 @@ Module Program
             Next
             builder.Append("        </akas>" & vbCrLf)
             builder.Append("        <addresses>" & vbCrLf)
+            'The example xml showed 4 address fields, even when none are used.  Why not handle addresses the same as akas?
             builder.Append("          <address>" & vbCrLf)
-            builder.Append("            <addr1></addr1>" & vbCrLf)
+            builder.Append("            <addr1>" & fileData(addressLocation, y) & "</addr1>" & vbCrLf)
             builder.Append("            <addr2></addr2>" & vbCrLf)
             builder.Append("            <addr3></addr3>" & vbCrLf)
             builder.Append("            <addr4></addr4>" & vbCrLf)
-            builder.Append("            <city></city>" & vbCrLf)
+            builder.Append("            <city>" & fileData(cityLocation, y) & "</city>" & vbCrLf)
             builder.Append("            <state></state>" & vbCrLf)
             builder.Append("            <postalcode></postalcode>" & vbCrLf)
-            builder.Append("            <country></country>" & vbCrLf)
+            builder.Append("            <country>" & fileData(countryLocation, y) & "</country>" & vbCrLf)
             builder.Append("            <remarks></remarks>" & vbCrLf)
             builder.Append("          </address>" & vbCrLf)
             builder.Append("        </addresses>" & vbCrLf)
             builder.Append("        <dobs>" & vbCrLf)
-            builder.Append("          <dob>" & fileData(ColumnSearch("DOB", columnNames), y) & "</dob>" & vbCrLf)
+            builder.Append("          <dob>" & fileData(dobLocation, y) & "</dob>" & vbCrLf)
             builder.Append("        </dobs>" & vbCrLf)
+            'POB - place of birth - should be in notes
             builder.Append("        <notes>" & vbCrLf)
             builder.Append("          <note type="""" value=""""/>" & vbCrLf)
             builder.Append("        </notes>" & vbCrLf)

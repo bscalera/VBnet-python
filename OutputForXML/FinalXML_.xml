@@ -23,8 +23,8 @@
           <complexion></complexion>
           <race></race>
           <country></country>
-          <remarks></remarks>
-          <entitytype></entitytype>
+          <remarks>President of somewhere</remarks>
+          <entitytype>individual</entitytype>
           <listtype></listtype>
           <callsign></callsign>
         </info>
@@ -95,8 +95,8 @@
           <complexion></complexion>
           <race></race>
           <country></country>
-          <remarks></remarks>
-          <entitytype></entitytype>
+          <remarks>Mother</remarks>
+          <entitytype>individual</entitytype>
           <listtype></listtype>
           <callsign></callsign>
         </info>
@@ -159,8 +159,8 @@
           <complexion></complexion>
           <race></race>
           <country></country>
-          <remarks></remarks>
-          <entitytype></entitytype>
+          <remarks>Sister</remarks>
+          <entitytype>individual</entitytype>
           <listtype></listtype>
           <callsign></callsign>
         </info>
@@ -240,14 +240,14 @@
         </akas>
         <addresses>
           <address>
-            <addr1></addr1>
+            <addr1>"The long road 23</addr1>
             <addr2></addr2>
             <addr3></addr3>
             <addr4></addr4>
-            <city></city>
+            <city> City Name A</city>
             <state></state>
             <postalcode></postalcode>
-            <country></country>
+            <country> Z100"</country>
             <remarks></remarks>
           </address>
         </addresses>
@@ -288,7 +288,7 @@
           <race></race>
           <country></country>
           <remarks></remarks>
-          <entitytype></entitytype>
+          <entitytype>entity</entitytype>
           <listtype></listtype>
           <callsign></callsign>
         </info>
@@ -324,10 +324,10 @@
             <addr2></addr2>
             <addr3></addr3>
             <addr4></addr4>
-            <city></city>
+            <city>Berg</city>
             <state></state>
             <postalcode></postalcode>
-            <country></country>
+            <country>Country1</country>
             <remarks></remarks>
           </address>
         </addresses>
@@ -368,7 +368,7 @@
           <race></race>
           <country></country>
           <remarks></remarks>
-          <entitytype></entitytype>
+          <entitytype>entity</entitytype>
           <listtype></listtype>
           <callsign></callsign>
         </info>
@@ -388,10 +388,10 @@
             <addr2></addr2>
             <addr3></addr3>
             <addr4></addr4>
-            <city></city>
+            <city>Berg</city>
             <state></state>
             <postalcode></postalcode>
-            <country></country>
+            <country>Country2</country>
             <remarks></remarks>
           </address>
         </addresses>
@@ -432,7 +432,7 @@
           <race></race>
           <country></country>
           <remarks></remarks>
-          <entitytype></entitytype>
+          <entitytype>individual</entitytype>
           <listtype></listtype>
           <callsign></callsign>
         </info>
@@ -452,10 +452,10 @@
             <addr2></addr2>
             <addr3></addr3>
             <addr4></addr4>
-            <city></city>
+            <city>Berg</city>
             <state></state>
             <postalcode></postalcode>
-            <country></country>
+            <country>Country3</country>
             <remarks></remarks>
           </address>
         </addresses>
@@ -496,7 +496,7 @@
           <race></race>
           <country></country>
           <remarks></remarks>
-          <entitytype></entitytype>
+          <entitytype>individual</entitytype>
           <listtype></listtype>
           <callsign></callsign>
         </info>
@@ -640,7 +640,7 @@
           <race></race>
           <country></country>
           <remarks></remarks>
-          <entitytype></entitytype>
+          <entitytype>individual</entitytype>
           <listtype></listtype>
           <callsign></callsign>
         </info>
@@ -692,10 +692,10 @@
             <addr2></addr2>
             <addr3></addr3>
             <addr4></addr4>
-            <city></city>
+            <city>Patter</city>
             <state></state>
             <postalcode></postalcode>
-            <country></country>
+            <country>Country4</country>
             <remarks></remarks>
           </address>
         </addresses>
@@ -756,10 +756,10 @@
             <addr2></addr2>
             <addr3></addr3>
             <addr4></addr4>
-            <city></city>
+            <city>"Patter</city>
             <state></state>
             <postalcode></postalcode>
-            <country></country>
+            <country> Statement"</country>
             <remarks></remarks>
           </address>
         </addresses>
@@ -836,10 +836,10 @@
             <addr2></addr2>
             <addr3></addr3>
             <addr4></addr4>
-            <city></city>
+            <city>"Town</city>
             <state></state>
             <postalcode></postalcode>
-            <country></country>
+            <country> Colabria"</country>
             <remarks></remarks>
           </address>
         </addresses>
@@ -880,7 +880,7 @@
           <race></race>
           <country></country>
           <remarks></remarks>
-          <entitytype></entitytype>
+          <entitytype>individual</entitytype>
           <listtype></listtype>
           <callsign></callsign>
         </info>
