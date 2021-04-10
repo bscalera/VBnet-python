@@ -14,7 +14,7 @@
           <tonnage></tonnage>
           <grt></grt>
           <dob></dob>
-          <sex></sex>
+          <sex>m</sex>
           <height></height>
           <weight></weight>
           <build></build>
@@ -30,7 +30,7 @@
         </info>
         <akas>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>that</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -38,7 +38,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>this</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -64,6 +64,7 @@
         </dobs>
         <notes>
           <note type="" value=""/>
+          <note type="POB" value="United States of America"/>
         </notes>
         <urls>
           <url>
@@ -86,7 +87,7 @@
           <tonnage></tonnage>
           <grt></grt>
           <dob></dob>
-          <sex></sex>
+          <sex>m</sex>
           <height></height>
           <weight></weight>
           <build></build>
@@ -102,7 +103,7 @@
         </info>
         <akas>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname></altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -128,6 +129,7 @@
         </dobs>
         <notes>
           <note type="" value=""/>
+          <note type="POB" value="NA"/>
         </notes>
         <urls>
           <url>
@@ -150,7 +152,7 @@
           <tonnage></tonnage>
           <grt></grt>
           <dob></dob>
-          <sex></sex>
+          <sex>m</sex>
           <height></height>
           <weight></weight>
           <build></build>
@@ -166,7 +168,7 @@
         </info>
         <akas>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname></altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -192,6 +194,7 @@
         </dobs>
         <notes>
           <note type="" value=""/>
+          <note type="POB" value="NA"/>
         </notes>
         <urls>
           <url>
@@ -214,7 +217,7 @@
           <tonnage></tonnage>
           <grt></grt>
           <dob></dob>
-          <sex></sex>
+          <sex>m</sex>
           <height></height>
           <weight></weight>
           <build></build>
@@ -230,7 +233,7 @@
         </info>
         <akas>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname></altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -256,6 +259,7 @@
         </dobs>
         <notes>
           <note type="" value=""/>
+          <note type="POB" value="Program_name2"/>
         </notes>
         <urls>
           <url>
@@ -278,7 +282,7 @@
           <tonnage></tonnage>
           <grt></grt>
           <dob></dob>
-          <sex></sex>
+          <sex>m</sex>
           <height></height>
           <weight></weight>
           <build></build>
@@ -294,7 +298,7 @@
         </info>
         <akas>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>company name1</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -302,7 +306,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>company name2</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -310,7 +314,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>company name3</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -336,6 +340,7 @@
         </dobs>
         <notes>
           <note type="" value=""/>
+          <note type="POB" value="NA"/>
         </notes>
         <urls>
           <url>
@@ -358,7 +363,7 @@
           <tonnage></tonnage>
           <grt></grt>
           <dob></dob>
-          <sex></sex>
+          <sex>m</sex>
           <height></height>
           <weight></weight>
           <build></build>
@@ -374,7 +379,7 @@
         </info>
         <akas>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname></altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -400,6 +405,7 @@
         </dobs>
         <notes>
           <note type="" value=""/>
+          <note type="POB" value="NA"/>
         </notes>
         <urls>
           <url>
@@ -422,7 +428,7 @@
           <tonnage></tonnage>
           <grt></grt>
           <dob></dob>
-          <sex></sex>
+          <sex>m</sex>
           <height></height>
           <weight></weight>
           <build></build>
@@ -438,7 +444,7 @@
         </info>
         <akas>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname></altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -464,6 +470,7 @@
         </dobs>
         <notes>
           <note type="" value=""/>
+          <note type="POB" value="NA"/>
         </notes>
         <urls>
           <url>
@@ -486,7 +493,7 @@
           <tonnage></tonnage>
           <grt></grt>
           <dob></dob>
-          <sex></sex>
+          <sex>m</sex>
           <height></height>
           <weight></weight>
           <build></build>
@@ -502,7 +509,7 @@
         </info>
         <akas>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>name10</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -510,7 +517,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>name9</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -518,7 +525,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>name8</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -526,7 +533,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>name7</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -534,7 +541,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>name6</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -542,7 +549,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>name5</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -550,7 +557,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>name4</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -558,7 +565,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>name3</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -566,7 +573,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>name2</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -574,7 +581,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>name1</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -582,7 +589,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>name0</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -608,6 +615,7 @@
         </dobs>
         <notes>
           <note type="" value=""/>
+          <note type="POB" value="NA"/>
         </notes>
         <urls>
           <url>
@@ -630,7 +638,7 @@
           <tonnage></tonnage>
           <grt></grt>
           <dob></dob>
-          <sex></sex>
+          <sex>m</sex>
           <height></height>
           <weight></weight>
           <build></build>
@@ -646,7 +654,7 @@
         </info>
         <akas>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>1</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -654,7 +662,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>2</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -662,7 +670,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>3</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -670,7 +678,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>4</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -678,7 +686,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>5</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -704,6 +712,7 @@
         </dobs>
         <notes>
           <note type="" value=""/>
+          <note type="POB" value="NA"/>
         </notes>
         <urls>
           <url>
@@ -726,7 +735,7 @@
           <tonnage></tonnage>
           <grt></grt>
           <dob></dob>
-          <sex></sex>
+          <sex>m</sex>
           <height></height>
           <weight></weight>
           <build></build>
@@ -742,7 +751,7 @@
         </info>
         <akas>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>This is a test</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -768,6 +777,7 @@
         </dobs>
         <notes>
           <note type="" value=""/>
+          <note type="POB" value="11-Apr-57"/>
         </notes>
         <urls>
           <url>
@@ -790,7 +800,7 @@
           <tonnage></tonnage>
           <grt></grt>
           <dob></dob>
-          <sex></sex>
+          <sex>m</sex>
           <height></height>
           <weight></weight>
           <build></build>
@@ -806,7 +816,7 @@
         </info>
         <akas>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>name 1</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -814,7 +824,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>name 2</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -822,7 +832,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>name 3</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -848,6 +858,7 @@
         </dobs>
         <notes>
           <note type="" value=""/>
+          <note type="POB" value=""8 Jan 1967"/>
         </notes>
         <urls>
           <url>
@@ -870,7 +881,7 @@
           <tonnage></tonnage>
           <grt></grt>
           <dob></dob>
-          <sex></sex>
+          <sex>m</sex>
           <height></height>
           <weight></weight>
           <build></build>
@@ -886,7 +897,7 @@
         </info>
         <akas>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>this</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -894,7 +905,7 @@
             <remarks></remarks>
         </aka>
         <aka>
-            <alttype></alttype>
+            <alttype>a.k.a.</alttype>
             <altname>that</altname>
             <firstname></firstname>
             <middlename></middlename>
@@ -920,6 +931,7 @@
         </dobs>
         <notes>
           <note type="" value=""/>
+          <note type="POB" value="City in Sudan"/>
         </notes>
         <urls>
           <url>

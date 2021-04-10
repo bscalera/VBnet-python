@@ -166,14 +166,17 @@ Module Program
         Dim programLocation As Integer = ColumnSearch("Program", columnNames)
         Dim partytypeLocation As Integer = ColumnSearch("Type", columnNames)
         Dim countryLocation As Integer = ColumnSearch("Country", columnNames)
-        Dim listOfAkasLocation As Integer = ColumnSearch("Alias", columnNames)
+        Dim sexLocation As Integer = ColumnSearch("Sex", columnNames)
+        Dim sexData As String
         Dim remarksLocation As Integer = ColumnSearch("Remarks", columnNames)
         Dim entitytypeLocation As Integer = ColumnSearch("Type", columnNames)
+        Dim listOfAkasLocation As Integer = ColumnSearch("Alias", columnNames)
         Dim addressLocation As Integer = ColumnSearch("Address", columnNames)
         Dim cityLocation As Integer = ColumnSearch("City", columnNames)
         'Dim countryLocation As Integer = ColumnSearch("Country", columnNames)
         Dim dobLocation As Integer = ColumnSearch("DOB", columnNames)
         Dim pobLocation As Integer = ColumnSearch("POB", columnNames)
+        Dim pobData As String
 
         'add the info for each user line by line in xml format
         For y As Integer = 1 To line.Length - 1
@@ -194,7 +197,13 @@ Module Program
             'Date of Birth must be converted to mmddyyyy format.
             'Why is date of birth here when it is in another place in a lower line
             builder.Append("          <dob></dob>" & vbCrLf)
-            builder.Append("          <sex></sex>" & vbCrLf)
+            'sex should default to "m" when it is not included in the csv file
+            If fileData(sexLocation, y).Equals("") Then
+                sexData = "m"
+            Else
+                sexData = fileData(sexLocation, y)
+            End If
+            builder.Append("          <sex>" & sexData & "</sex>" & vbCrLf)
             builder.Append("          <height></height>" & vbCrLf)
             builder.Append("          <weight></weight>" & vbCrLf)
             builder.Append("          <build></build>" & vbCrLf)
@@ -218,7 +227,7 @@ Module Program
                 'If there are no akas, then the length is 1.  Loop (For 0 To 0) goes through the loop once.
 
                 builder.Append("        <aka>" & vbCrLf)
-                builder.Append("            <alttype></alttype>" & vbCrLf)
+                builder.Append("            <alttype>a.k.a.</alttype>" & vbCrLf)
                 builder.Append("            <altname>" & listOfAkas(i) & "</altname>" & vbCrLf)
                 builder.Append("            <firstname></firstname>" & vbCrLf)
                 builder.Append("            <middlename></middlename>" & vbCrLf)
@@ -247,6 +256,13 @@ Module Program
             'POB - place of birth - should be in notes
             builder.Append("        <notes>" & vbCrLf)
             builder.Append("          <note type="""" value=""""/>" & vbCrLf)
+            'If POB is blank, it should be NA.
+            If fileData(pobLocation, y).Equals("") Then
+                pobData = "NA"
+            Else
+                pobData = fileData(pobLocation, y)
+            End If
+            builder.Append("          <note type=""POB"" value=""" & pobData & """/>" & vbCrLf)
             builder.Append("        </notes>" & vbCrLf)
             builder.Append("        <urls>" & vbCrLf)
             builder.Append("          <url>" & vbCrLf)
