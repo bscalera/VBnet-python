@@ -1,1 +1,1 @@
-Information about the conversion From csv to xml
+Information about the conversion From csv to xml - .exe is at -C:\Users\BenjaminScalera\Documents\GitHub\VBnet-python\vbnetpython\bin\Debug\netcoreapp3.1\

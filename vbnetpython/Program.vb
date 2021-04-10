@@ -8,6 +8,21 @@ Module Program
         'This is how a comment is written. - https://stackoverflow.com/questions/13477958/in-visual-basic-how-do-you-create-a-block-comment
         Console.WriteLine("The program has started.")
 
+        'You need to know the directory path where the program is running to be able to get other files near it.  Without the ability to get the program's directory path, the directory path needs to be coded as a string in the program.
+        'Get the directory path where the program is running - vb.net get path of application - https://stackoverflow.com/questions/2216141/get-program-path-in-vb-net
+        'These did not work from that page.
+        'Dim appPath As String = Application.StartupPath()
+        'Dim exePath As String = Application.ExecutablePath()
+        'Dim appPath As String = My.Application.Info.DirectoryPath
+        'System.Reflection.Assembly.GetExecutingAssembly().Location
+        'Dim CurDir As String = My.Application.Info.DirectoryPath
+        'This line worked.  It gets the directory path of the .exe file.
+        Dim strPath As String = AppDomain.CurrentDomain.BaseDirectory
+        'The way the program is set up now, the .exe file is not in the same folder as the .csv file or the .ini file.
+        'When the program is finished, it may need to be set up so that only the .exe file and .ini file are given without any of the other folders or files that Visual Studio sets up.
+        'The program's path might not be where the .csv files are.  Even if the .csv files will be in another folder that will be defined by the user in the .ini file, the path is still needed to access the .ini file.
+        Console.WriteLine(strPath)
+
         'This is where the folders and files will be
         'Path should be taken from config file
         'Dim path As String
@@ -67,7 +82,7 @@ Module Program
         'Console.WriteLine(time)
         'use the current time to create a unique name for the log file
         'It is not necessary to use a unique name while writing the program.
-        Dim logInfo As Byte() = New UTF8Encoding(True).GetBytes("Information about the conversion From csv to xml") ' - the program was run at " & Now.ToString("d") & " " & Now.ToLongTimeString)
+        Dim logInfo As Byte() = New UTF8Encoding(True).GetBytes("Information about the conversion From csv to xml" & " - .exe is at -" & strPath) ' - the program was run at " & Now.ToString("d") & " " & Now.ToLongTimeString)
         WriteToFile(logInfo, path + "Logs\", filename:="log.txt") 'time + "log.txt")
 
         'Console.WriteLine(CreateXML)
