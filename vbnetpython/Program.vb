@@ -21,7 +21,8 @@ Module Program
         'The way the program is set up now, the .exe file is not in the same folder as the .csv file or the .ini file.
         'When the program is finished, it may need to be set up so that only the .exe file and .ini file are given without any of the other folders or files that Visual Studio sets up.
         'The program's path might not be where the .csv files are.  Even if the .csv files will be in another folder that will be defined by the user in the .ini file, the path is still needed to access the .ini file.
-        Console.WriteLine(strPath)
+        Console.WriteLine("The .exe path is " & strPath)
+        'vb.net to executable - https://stackoverflow.com/questions/17130995/how-to-make-a-vb-net-file-program-to-standalone-exe
 
         'This is where the folders and files will be
         'Path should be taken from config file
@@ -138,6 +139,23 @@ Module Program
         'split the file into lines
         Dim line As String() = fileContent.Split(New String() {Environment.NewLine}, '{ "\r\n", "\r", "\n" }
                                        StringSplitOptions.None)
+
+        'I noticed that a comma in a cell causes the rest of the line to be in the wrong place. There needs to be a way to fix that.
+        'Any time a comma is used in a cell, excel puts it in quotes.  I need to find some way of not counting the commas that are inside a set of quotes.
+        'I could change any commas that are between two quotes to something else, and maybe change them back to commas after splitting the line at the commas.
+        'Go through each line to check for quote marks.
+        'Go through all the characters in the line to check if it's a quote mark.
+        'Stop at the end of each line.
+        'If there are 2 quote marks on a line, remove or replace all commas between them.
+        'The commas can be put back after the split
+        'https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/language-features/strings/how-to-search-within-a-string
+        For lineIndex As Integer = 0 To line.Length - 1
+            For charIndex As Integer = 0 To line(lineIndex - 1)
+
+            Next
+        Next
+
+
         'count the number of commas
         Dim countColumn As Integer = CountChar(line(0), ",") + 1
         Console.WriteLine("There are " & countColumn & " columns in the file.")
